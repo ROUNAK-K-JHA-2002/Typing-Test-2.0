@@ -8,8 +8,7 @@ function App() {
  
 
   return (
-    <div className="App text-white">
-     <div>hello</div>
+    <div className="App">
      <Login/>
     </div>
   )
