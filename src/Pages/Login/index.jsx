@@ -2,10 +2,10 @@ import React, { useEffect, useState} from 'react'
 import {Container,Button} from 'react-bootstrap'
 import  db ,{auth,provider} from '../../Services/Firebase'
 import {signInWithPopup} from 'firebase/auth'
-
 import {setDoc ,doc, onSnapshot, getDoc} from 'firebase/firestore'
 import Home from '../Home/index'
-
+import  './login.css'
+import GoogleSignInImg from '../../assets/googleSignIn.png' 
 const userData = {
   userID : "",
   userName : "",
@@ -34,6 +34,7 @@ function Login() {
         console.error(error)
        }
         
+       window.location.reload();
  })
 
 }
@@ -43,11 +44,14 @@ useEffect (()=>{
 })
 console.log( 'user is ' + user)
   return (
-    <div>
+    <div className='Login d-flex align-content-center' >
     {user ? <Home user={user}/> : 
-    <Container>
-    <div className='display-6 text-center'>Login</div>
-    <Button varient="primary" onClick={handleLogin}>Login</Button>
+    <Container className='Login-Container'>
+    <div className='display-6 text-center text-white'>WELCOME TO TYPO_RECTARE</div>
+    <div className='display-6 text-center text-white'>Login</div>
+    <div className='SigninBtn text-center'>
+      <img src={GoogleSignInImg} alt="GoogleSignInImg" onClick={handleLogin} />
+    </div>
    </Container>}
       
     </div>
