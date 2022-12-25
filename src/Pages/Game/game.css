@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran&family=Cormorant+SC&family=IBM+Plex+Sans&family=Lora:wght@500&family=Poppins&display=swap');
+.Game-Wrapper div:not(:first-child) {
+    border: 2px solid red;
+}
+
+.Show-Text {
+    backdrop-filter: blur(15px);
+    font-family: 'Poppins', sans-serif;
+}
