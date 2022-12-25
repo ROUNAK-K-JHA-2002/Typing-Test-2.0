@@ -7,7 +7,9 @@ function Home() {
  
     
   return (
-    <Navbar user={userDetails}/>
+   <div className="Home_Container">
+     <Navbar user={userDetails}/>
+   </div>
   )
 }
 
