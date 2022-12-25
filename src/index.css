@@ -3,10 +3,14 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-image: url('/src/assets/Background_Desktop.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media screen and (max-width:600px) {
     body {
         background-image: url('/src/assets/Background_Mobile.jpg');
+        /* background-position:; */
+        background-repeat: repeat-y;
     }
 }
