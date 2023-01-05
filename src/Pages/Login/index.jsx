@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react'
 import {Container,Button} from 'react-bootstrap'
 import  db ,{auth,provider} from '../../Services/Firebase'
 import {signInWithPopup} from 'firebase/auth'
-import {setDoc ,doc, onSnapshot, getDoc} from 'firebase/firestore'
+import {setDoc ,doc, collection , getDocs} from 'firebase/firestore'
 import Home from '../Home/index'
 import  './login.css'
 import GoogleSignInImg from '../../assets/googleSignIn.png' 
@@ -12,7 +12,6 @@ const userData = {
   userEmail : "",
   userProfilePhoto : ""
 }
-
 
 function Login() {
   const [user,setuser] = useState('')
@@ -39,9 +38,21 @@ function Login() {
 
 }
 
+//Setting Para in Session Storage
+const getText = async() =>{
+     const querySnapshot = await getDocs(collection(db, "Typing_Paragraphs"));
+     const num = Math.floor((Math.random() * querySnapshot.size) + 1);
+     querySnapshot.forEach((doc) => {
+     if(doc.id == `Paragraph ${num}`){
+      sessionStorage.setItem('para',`${doc.data().Text}`)
+    }
+   });
+  }
+
 useEffect (()=>{
+  getText();
   setuser(localStorage.getItem('userDetails'))
-})
+},[])
 console.log( 'user is ' + user)
   return (
     <div className='Login d-flex align-content-center' >
